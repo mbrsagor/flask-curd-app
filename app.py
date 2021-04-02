@@ -4,7 +4,7 @@ from flask import Flask, redirect, render_template, url_for
 from flask_sqlalchemy import sqlalchemy
 
 app = Flask(__name__)
-# app.config['SQLALCHEMY_DATABASE_URL'] = 'sqlite:///test.db'
+app.config['SQLALCHEMY_DATABASE_URL'] = 'sqlite:///test.db'
 # db = sqlalchemy(app)
 
 # class Todo(db.Model):

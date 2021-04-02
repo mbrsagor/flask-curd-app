@@ -5,5 +5,8 @@
 {% endblock %}
 
 {% block body %}
-    <h2>Welcome to our website</h2>
+    <form class="todo_form" method="POST">
+        <input type="text" placeholder="Enter todo content" name="content" />
+        <button type="submit">save</button>
+    </form>
 {%endblock %}
