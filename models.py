@@ -17,3 +17,13 @@ class Todo(db.Model):
     def __repr__(self):
         return f"Task {self.id}"
 
+
+class Book(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    author = db.Column(db.String(40))
+    name = db.Column(db.String(150))
+    release_year = db.Column(db.DateTime)
+    date = db.Column(db.DateTime, default=datetime.utcnow)
+
+    def __repr__(self):
+        return f"TaskBook {self.name}"
