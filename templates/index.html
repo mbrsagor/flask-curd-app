@@ -5,8 +5,22 @@
 {% endblock %}
 
 {% block body %}
-    <form class="todo_form" method="POST">
-        <input type="text" placeholder="Enter todo content" name="content" />
-        <button type="submit">save</button>
-    </form>
+    <div class="content">
+        <h2>Todo list</h2>
+        <table>
+            <tr>
+                <th>Task</th>
+                <th>Todo</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>
+                    <a href="">Update</a>
+                    <a href="">Delete</a>
+                </td>
+            </tr>
+        </table>
+    </div>
 {%endblock %}

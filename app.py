@@ -43,4 +43,4 @@ def hello_user(name):
 
 # run the project on local dev server
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
