@@ -26,11 +26,15 @@ from models import db
 db.create_all()
 ```
 
-### Others requirements
-> If you set globally add to command line options flask automatifally run and reset server.
+### Set environment variables in terminal
+
 ```bash
 export FLASK_APP=app.py
 export FLASK_ENV=development
+```
+
+###### Run the app
+```base
 flask run
 ```
 

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -17,12 +17,13 @@ def index():
     # print(todo_list)
     return render_template('base.html', todo_list=todo_list)
 
-@app.route('/add')
+@app.route("/add", methods=["POST"])
 def add_todo():
-    title = request.get("title")
+    title = request.form.get("title")
     todo_instance = Todo(title=title, completed=False)
     db.session.add(todo_instance)
     db.session.commit()
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
     db.create_all()
@@ -32,7 +33,3 @@ if __name__ == '__main__':
     # db.session.commit()
 
     app.run(debug=True)
-
-
-# CBS
-# Circle
