@@ -1,13 +1,27 @@
-from flask import Flask, redirect, render_template, url_for
+from flask import Flask, redirect, render_template, url_for, request
 
 from models import Todo
 
 app = Flask(__name__)
 
-# All routes
-@app.route('/')
+# Todo create, and list route
+@app.route('/', methods=['POST','GET'])
 def index():
-    return render_template('index.html')
+    if request.method == 'POST':
+        todo_content = request.form['content']
+        todo_instance = Todo(content=todo_content)
+
+        try:
+            db.session.add(todo_instance)
+            db.session.commit()
+            return redirect('/')
+
+        except:
+            return "There was an error creating."
+            
+    else:
+        todo_obj = Todo.query.order_by(Todo.date).all()
+        return render_template('index.html')
 
 @app.route('/me/<user>')
 def me(user):
@@ -43,4 +57,4 @@ def hello_user(name):
 
 # run the project on local dev server
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
