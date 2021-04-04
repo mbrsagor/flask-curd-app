@@ -1,5 +1,5 @@
 # flask-curd-app
-> The project in a flask curd app which database will use postgresql.
+> The project in a flask curd app with restful API.
 
 ##### Prerequisites
 - At lest Python clear concept.
@@ -16,4 +16,13 @@ virtualenv venv --python=python3.8
 source venv/bin/activate
 pip install -r requirements.txt
 python app.py
+```
+
+### Migarte `sqlite.db` 
+Active your virtualenv then follow the commands
+
+```python
+python
+from models import db
+db.create_all()
 ```
