@@ -25,3 +25,16 @@ Active your virtualenv then open shell after that, follow the commands
 from models import db
 db.create_all()
 ```
+
+### Others requirements
+> If you set globally add to command line options flask automatifally run and reset server.
+```bash
+export FLASK_APP=app.py
+export FLASK_ENV=development
+flask run
+```
+
+### Install SQL db
+```base
+pip install Flask-SQLAchemy 
+```

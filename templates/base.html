@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Todo App</title>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-3">
+                <h1>Todo List</h1>
+
+                <form action="">
+                    <div class="from-group">
+                        <label for="title">Todo Name</label>
+                        <input type="text" name="title" placeholder="Enter todo name" id="title" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-success btn-sm mt-2">Save</button>
+                </form>
+
+                <table class="table table-striped table-bordered table-hover mt-5">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Todo Name</th>
+                            <th>Status</th>
+                            <th class="text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if todo_list %}
+                        {% for todo in todo_list %}
+                        <tr>
+                            <th>{{todo.id}}</th>
+                            <td>{{todo.title}}</td>
+                            <td>
+                                {% if todo.completed == True %}
+                                    Complete
+                                {% else %}
+                                    Incomplete
+                                {% endif %}
+                            </td>
+                            <td class="text-center">
+                                <a class="btn btn-sm btn-info" href="">Update</a>
+                                <a class="btn btn-sm btn-danger" href="">Delete</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
