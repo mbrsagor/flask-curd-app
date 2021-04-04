@@ -8,8 +8,8 @@ app = Flask(__name__)
 @app.route('/', methods=['POST','GET'])
 def index():
     if request.method == 'POST':
-        todo_content = request.form['content']
-        todo_instance = Todo(content=todo_content)
+        todo_title = request.form['title']
+        todo_instance = Todo(title=todo_title)
 
         try:
             db.session.add(todo_instance)
@@ -20,7 +20,7 @@ def index():
             return "There was an error creating."
             
     else:
-        todo_obj = Todo.query.order_by(Todo.date).all()
+        # todo_obj = Todo.query.all()
         return render_template('index.html')
 
 @app.route('/me/<user>')
@@ -58,3 +58,5 @@ def hello_user(name):
 # run the project on local dev server
 if __name__ == '__main__':
     app.run(debug=True)
+
+# 01735078031 Rokon Mama

@@ -12,9 +12,8 @@ db = SQLAlchemy(app)
 # Todo models
 class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    content = db.Column(db.String(150))
-    completed = db.Column(db.Integer, default=0)
-    date = db.Column(db.DateTime, default=datetime.utcnow)
+    tilte = db.Column(db.String(150))
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
     def __repr__(self):
-        return f"Task {self.id}"
+        return f"Task {self.id} {self.tilte}"
