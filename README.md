@@ -1,4 +1,4 @@
-# flask-curd-app
+# Flask-curd-app
 > The project in a flask curd app with restful API.
 
 ##### Prerequisites
@@ -19,10 +19,9 @@ python app.py
 ```
 
 ### Migarte `sqlite.db` 
-Active your virtualenv then follow the commands
+Active your virtualenv then open shell after that, follow the commands
 
 ```python
-python
 from models import db
 db.create_all()
 ```
