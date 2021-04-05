@@ -6,16 +6,19 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
+
 class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(120))
     completed = db.Column(db.Boolean)
+
 
 @app.route('/')
 def index():
     todo_list = Todo.query.all()
     # print(todo_list)
     return render_template('base.html', todo_list=todo_list)
+
 
 @app.route("/add", methods=["POST"])
 def add_todo():
@@ -24,6 +27,15 @@ def add_todo():
     db.session.add(todo_instance)
     db.session.commit()
     return redirect(url_for('index'))
+
+
+@app.route("/update/<int:todo_id>")
+def update_todo(todo_id):
+    todo_instance = Todo.query.filter(id=todo_id).first()
+    todo_instance.completed = not todo_instance.completed
+    db.session.commit()
+    return redirect(url_for('index'))
+
 
 if __name__ == '__main__':
     db.create_all()
