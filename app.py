@@ -1,7 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
+from flask_restful import Resource, Api
 
 app = Flask(__name__)
+api = Api(app)
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
@@ -44,6 +47,13 @@ def delete(todo_id):
     db.session.commit()
     return redirect(url_for('index'))
 
+
+
+# API
+class HelloWorld(Resource):
+    def get(self):
+        return {'hello': 'world'}
+api.add_resource(HelloWorld, '/api/todo')
 
 
 if __name__ == '__main__':
