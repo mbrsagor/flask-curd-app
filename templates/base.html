@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <title>Todo App</title>
 </head>
 <body>
@@ -45,8 +48,12 @@
                                 {% endif %}
                             </td>
                             <td class="text-center">
-                                <a class="btn btn-sm btn-info" href="/update/{{todo.id}}">Update</a>
-                                <a class="btn btn-sm btn-danger" href="/delete/{{ todo.id }}">Delete</a>
+                                <a class="btn btn-sm btn-info mr-2" href="/update/{{todo.id}}">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                <a class="btn btn-sm btn-danger" href="/delete/{{ todo.id }}">
+                                    <i class="fa fa-trash"></i>
+                                </a>
                             </td>
                         </tr>
                         {% endfor %}

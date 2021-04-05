@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
+# from models.todo import Todo
 from flask_restful import Resource, Api
 
 app = Flask(__name__)
