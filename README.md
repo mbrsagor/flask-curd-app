@@ -1,5 +1,5 @@
 # Flask-curd-app
-> The project in a flask curd app with restful API.
+> The following steps will walk you thru installation on a Mac. Linux should be similar. It's also possible to develop on a Windows machine, but I have not documented the steps. If you've developed the Flask apps on Windows, you should have little problem getting up and running.
 
 ##### Prerequisites
 - At lest Python clear concept.
